@@ -9,5 +9,7 @@ class StockViewSet(APIView):
         self.stockService = StockService()
 
     def get(self, request):
-        data = self.stockService.retriveTodaysData('TSLA')
+        ticker = request.query_params.get('ticker')
+        date = request.query_params.get('date')
+        data = self.stockService.getStockDayStats(ticker, date)
         return Response({"status": "success", "data": data}, status=status.HTTP_200_OK)

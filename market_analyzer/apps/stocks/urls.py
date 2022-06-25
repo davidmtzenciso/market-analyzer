@@ -2,5 +2,5 @@ from django.urls import path
 from .views import StockViewSet
 
 urlpatterns = [
-    path('today', StockViewSet.as_view())
+    path('avrg', StockViewSet.as_view())
 ]
